@@ -1,24 +1,76 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useRef, useState } from "react";
+import { business, seo, services } from "@/config/business";
+import { SiteHeader, SiteFooter, UtilityBar } from "@/components/landing/chrome";
+import {
+  Hero,
+  Services,
+  BenefitBlocks,
+  InsideTheShop,
+  LocationSection,
+  Reviews,
+} from "@/components/landing/sections";
+import { FinalCta } from "@/components/landing/estimate";
+import { StickyMobileActions } from "@/components/landing/sticky-actions";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  name: business.name,
+  url: business.url,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: business.address.street,
+    addressLocality: business.address.city,
+    addressRegion: business.address.region,
+    postalCode: business.address.postalCode,
+    addressCountry: "US",
+  },
+  areaServed: "Decatur, GA",
+  makesOffer: services.map((service) => ({
+    "@type": "Offer",
+    itemOffered: { "@type": "Service", name: service.title, description: service.copy },
+  })),
+  sameAs: business.sameAs,
+};
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: seo.title },
+      { name: "description", content: seo.description },
+      { property: "og:title", content: seo.title },
+      { property: "og:description", content: seo.description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: seo.canonical }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(jsonLd) }],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const heroCtaRef = useRef<HTMLDivElement | null>(null);
+  const [keyboardOpen, setKeyboardOpen] = useState(false);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <UtilityBar />
+      <SiteHeader />
+      <main>
+        <Hero ctaRef={heroCtaRef} />
+        <Services />
+        <BenefitBlocks />
+        <InsideTheShop />
+        <LocationSection />
+        <Reviews />
+        <FinalCta onFormFocusChange={setKeyboardOpen} />
+      </main>
+      <SiteFooter />
+      <StickyMobileActions heroCtaRef={heroCtaRef} hidden={keyboardOpen} />
+      <div className="h-16 lg:hidden" aria-hidden="true" />
     </div>
   );
 }
