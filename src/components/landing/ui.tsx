@@ -99,7 +99,7 @@ export function DirectionsButton({
 }
 
 /** Shows the confirmed value, or a clearly-marked placeholder token. */
-export function ConfigValue({ value, className }: { value: string; className?: string }) {
+export function ConfigValue({ value, className }: { value: string; className?: string | undefined }) {
   if (isPlaceholder(value)) {
     return (
       <span
@@ -115,7 +115,7 @@ export function ConfigValue({ value, className }: { value: string; className?: s
   return <span className={className}>{value}</span>;
 }
 
-export function PhoneValue({ className }: { className?: string }) {
+export function PhoneValue({ className }: { className?: string | undefined }) {
   const href = telHref(business.phone);
   if (!href) return <ConfigValue value={business.phone} className={className} />;
   return (
