@@ -3,11 +3,11 @@ import { business, telHref, smsHref, isPlaceholder, directionsUrl } from "@/conf
 import type { ImagePlaceholder } from "@/config/business";
 import { cn } from "@/lib/utils";
 
-export function Container({ className, children }: { className?: string; children: ReactNode }) {
+export function Container({ className, children }: { className?: string | undefined; children: ReactNode }) {
   return <div className={cn("mx-auto w-full max-w-6xl px-4 sm:px-6", className)}>{children}</div>;
 }
 
-export function Eyebrow({ className, children }: { className?: string; children: ReactNode }) {
+export function Eyebrow({ className, children }: { className?: string | undefined; children: ReactNode }) {
   return <p className={cn("eyebrow", className)}>{children}</p>;
 }
 
@@ -29,7 +29,7 @@ export function CallButton({
 }: {
   trackingId: string;
   label: string;
-  className?: string;
+  className?: string | undefined;
 }) {
   const href = telHref(business.phone);
   const classes = cn(buttonStyles.primary, className);
@@ -59,7 +59,7 @@ export function TextButton({
 }: {
   trackingId: string;
   label: string;
-  className?: string;
+  className?: string | undefined;
 }) {
   const href = smsHref(business.textNumber);
   if (!href) {
@@ -81,9 +81,9 @@ export function DirectionsButton({
   variant = "outlineDark",
   label = "Get directions",
 }: {
-  className?: string;
-  variant?: keyof typeof buttonStyles;
-  label?: string;
+  className?: string | undefined;
+  variant?: keyof typeof buttonStyles | undefined;
+  label?: string | undefined;
 }) {
   return (
     <a
@@ -131,8 +131,8 @@ export function ShopImage({
   priority = false,
 }: {
   image: ImagePlaceholder;
-  className?: string;
-  priority?: boolean;
+  className?: string | undefined;
+  priority?: boolean | undefined;
 }) {
   if (isPlaceholder(image.src)) {
     return (
