@@ -57,11 +57,15 @@ export function EstimateForm({ onFocusChange }: { onFocusChange: (focused: boole
       <div className="border border-ink-border bg-ink-soft p-5" role="status" aria-live="polite">
         <h3 className="text-xl font-bold uppercase">We received your request.</h3>
         <p className="mt-2 text-sm text-ink-muted">
-          The shop will review the information and contact you using your selected method. For urgent help, call the
-          shop now.
+          The shop will review the information and contact you using your selected method. For
+          urgent help, call the shop now.
         </p>
         <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-          <CallButton trackingId="cta-call-final-success" label="Call the shop" className="w-full sm:w-auto" />
+          <CallButton
+            trackingId="cta-call-final-success"
+            label="Call the shop"
+            className="w-full sm:w-auto"
+          />
           <DirectionsButton variant="outlineLight" className="w-full sm:w-auto" />
         </div>
       </div>
@@ -113,7 +117,13 @@ export function EstimateForm({ onFocusChange }: { onFocusChange: (focused: boole
           value={values.year}
           onChange={(v) => set("year", v)}
         />
-        <Field id={`${id}-make`} label="Make" value={values.make} error={errors.make} onChange={(v) => set("make", v)} />
+        <Field
+          id={`${id}-make`}
+          label="Make"
+          value={values.make}
+          error={errors.make}
+          onChange={(v) => set("make", v)}
+        />
         <Field
           id={`${id}-model`}
           label="Model"
@@ -124,7 +134,10 @@ export function EstimateForm({ onFocusChange }: { onFocusChange: (focused: boole
       </div>
 
       <div>
-        <label htmlFor={`${id}-problem`} className="mb-1 block text-xs uppercase tracking-widest text-ink-muted">
+        <label
+          htmlFor={`${id}-problem`}
+          className="mb-1 block text-xs uppercase tracking-widest text-ink-muted"
+        >
           What problem are you experiencing?
         </label>
         <textarea
@@ -144,7 +157,9 @@ export function EstimateForm({ onFocusChange }: { onFocusChange: (focused: boole
       </div>
 
       <fieldset className="flex flex-wrap items-center gap-5">
-        <legend className="mb-1 text-xs uppercase tracking-widest text-ink-muted">Preferred contact method</legend>
+        <legend className="mb-1 text-xs uppercase tracking-widest text-ink-muted">
+          Preferred contact method
+        </legend>
         {(["call", "text"] as const).map((method) => (
           <label key={method} className="flex min-h-[44px] items-center gap-2 text-sm capitalize">
             <input
@@ -160,13 +175,17 @@ export function EstimateForm({ onFocusChange }: { onFocusChange: (focused: boole
         ))}
       </fieldset>
 
-      <button type="submit" data-cta="form-estimate-submit" className={`${buttonStyles.primary} w-full`}>
+      <button
+        type="submit"
+        data-cta="form-estimate-submit"
+        className={`${buttonStyles.primary} w-full`}
+      >
         Send my vehicle details
       </button>
 
       <p className="text-xs leading-relaxed text-ink-muted">
-        Share a few details about the vehicle and the problem. This request does not confirm an appointment or final
-        repair price.
+        Share a few details about the vehicle and the problem. This request does not confirm an
+        appointment or final repair price.
       </p>
     </form>
   );
@@ -224,13 +243,19 @@ export function FinalCta({ onFormFocusChange }: { onFormFocusChange: (focused: b
       <Container className="grid gap-8 lg:grid-cols-2 lg:items-start">
         <div className="min-w-0">
           <Eyebrow>Ready when you are</Eyebrow>
-          <h2 className="mt-2 text-3xl font-bold uppercase leading-tight sm:text-4xl">Get your car looked at today.</h2>
+          <h2 className="mt-2 text-3xl font-bold uppercase leading-tight sm:text-4xl">
+            Get your car looked at today.
+          </h2>
           <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-            Call the shop to check current availability, or send your vehicle details and a short description of the
-            problem.
+            Call the shop to check current availability, or send your vehicle details and a short
+            description of the problem.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CallButton trackingId="cta-call-final" label="Call the Decatur shop" className="w-full sm:w-auto" />
+            <CallButton
+              trackingId="cta-call-final"
+              label="Call the Decatur shop"
+              className="w-full sm:w-auto"
+            />
             <button
               type="button"
               data-cta="form-estimate-open"

@@ -1,7 +1,3 @@
-@import "tailwindcss" source(none);
-@source "../src";
-@import "tw-animate-css";
-
 @custom-variant dark (&:is(.dark *));
 
 /*
@@ -67,8 +63,8 @@
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
   --color-hairline: var(--hairline);
-  --font-display: "Oswald", "Arial Narrow", sans-serif;
-  --font-sans: "Barlow", system-ui, sans-serif;
+  --font-display: var(--font-oswald), "Oswald", "Arial Narrow", sans-serif;
+  --font-sans: var(--font-barlow), "Barlow", system-ui, sans-serif;
 }
 
 :root {
@@ -206,4 +202,3 @@
 @utility safe-bottom {
   padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
 }
-

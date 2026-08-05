@@ -56,7 +56,9 @@ export function SiteHeader() {
           <BrandMark />
           <span className="truncate font-display text-lg font-bold uppercase leading-none tracking-wide">
             Decatur
-            <span className="block text-xs font-semibold tracking-[0.22em] text-brand">Mechanic</span>
+            <span className="block text-xs font-semibold tracking-[0.22em] text-brand">
+              Mechanic
+            </span>
           </span>
         </a>
 
@@ -80,7 +82,9 @@ export function SiteFooter() {
       <Container className="grid gap-6 py-8 text-sm sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex items-center gap-2">
           <BrandMark />
-          <span className="font-display text-base font-bold uppercase tracking-wide">{business.name}</span>
+          <span className="font-display text-base font-bold uppercase tracking-wide">
+            {business.name}
+          </span>
         </div>
         <address className="not-italic leading-relaxed text-ink-muted">
           {business.address.street}

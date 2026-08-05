@@ -1,5 +1,14 @@
 import { business, services, directionsUrl, isPlaceholder } from "@/config/business";
-import { Container, Eyebrow, CallButton, DirectionsButton, ShopImage, ConfigValue, PhoneValue, buttonStyles } from "./ui";
+import {
+  Container,
+  Eyebrow,
+  CallButton,
+  DirectionsButton,
+  ShopImage,
+  ConfigValue,
+  PhoneValue,
+  buttonStyles,
+} from "./ui";
 
 /* ------------------------------ 1. Hero ------------------------------ */
 
@@ -26,12 +35,16 @@ export function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLDivElement | null
             Your local auto repair shop in Decatur.
           </h1>
           <p className="mt-4 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
-            Engine diagnostics, transmission repair, brake service, oil changes, and general auto repair at
-            1099 Columbia Dr in Decatur.
+            Engine diagnostics, transmission repair, brake service, oil changes, and general auto
+            repair at 1099 Columbia Dr in Decatur.
           </p>
 
           <div ref={ctaRef} className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <CallButton trackingId="cta-call-hero" label="Call to check availability" className="w-full sm:w-auto" />
+            <CallButton
+              trackingId="cta-call-hero"
+              label="Call to check availability"
+              className="w-full sm:w-auto"
+            />
             <a
               data-cta="cta-estimate-hero"
               href="#services"
@@ -44,7 +57,9 @@ export function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLDivElement | null
           <dl className="mt-7 grid gap-3 sm:grid-cols-3">
             {QUICK.map((cell) => (
               <div key={cell.label} className="border border-ink-border bg-ink-soft p-3">
-                <dt className="font-display text-[11px] uppercase tracking-widest text-brand">{cell.label}</dt>
+                <dt className="font-display text-[11px] uppercase tracking-widest text-brand">
+                  {cell.label}
+                </dt>
                 <dd className="mt-1 text-xs leading-snug text-ink-foreground">{cell.value}</dd>
               </div>
             ))}
@@ -52,7 +67,11 @@ export function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLDivElement | null
         </div>
 
         <div className="min-w-0">
-          <ShopImage image={business.images.exterior} priority className="border border-ink-border" />
+          <ShopImage
+            image={business.images.exterior}
+            priority
+            className="border border-ink-border"
+          />
         </div>
       </Container>
 
@@ -80,10 +99,12 @@ export function Services() {
       <Container>
         <div className="text-center">
           <Eyebrow>What we fix</Eyebrow>
-          <h2 className="mt-2 text-3xl font-bold uppercase sm:text-4xl">Four things we do — and do well.</h2>
+          <h2 className="mt-2 text-3xl font-bold uppercase sm:text-4xl">
+            Four things we do — and do well.
+          </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
-            Call the shop and tell us what your vehicle is doing. We'll confirm whether we handle the problem and the
-            next available step.
+            Call the shop and tell us what your vehicle is doing. We'll confirm whether we handle
+            the problem and the next available step.
           </p>
         </div>
 
@@ -95,8 +116,12 @@ export function Services() {
               className="flex flex-col border border-hairline bg-card p-5"
             >
               <span className="font-display text-xl font-bold text-brand">{service.number}</span>
-              <h3 className="mt-4 font-display text-base font-bold uppercase tracking-wide">{service.title}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{service.copy}</p>
+              <h3 className="mt-4 font-display text-base font-bold uppercase tracking-wide">
+                {service.title}
+              </h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {service.copy}
+              </p>
               <p className="mt-5 border-t border-hairline pt-3 text-xs font-semibold uppercase tracking-wide">
                 {service.footer}
               </p>
@@ -108,7 +133,11 @@ export function Services() {
           <p className="text-sm text-muted-foreground">
             Need help with something else? Call the shop and tell us what the vehicle is doing.
           </p>
-          <CallButton trackingId="cta-general-repair" label="Call about your vehicle" className="w-full sm:w-auto" />
+          <CallButton
+            trackingId="cta-general-repair"
+            label="Call about your vehicle"
+            className="w-full sm:w-auto"
+          />
         </div>
       </Container>
     </section>
@@ -139,7 +168,9 @@ export function BenefitBlocks() {
           <div key={block.headline} className="px-0 py-6 text-center lg:px-6 lg:py-2">
             <Eyebrow>{block.eyebrow}</Eyebrow>
             <h3 className="mt-2 text-xl font-bold uppercase">{block.headline}</h3>
-            <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">{block.copy}</p>
+            <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              {block.copy}
+            </p>
           </div>
         ))}
       </Container>
@@ -159,7 +190,8 @@ export function InsideTheShop() {
             1099 Columbia Dr, in real life.
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-            See the shop entrance, service bays, and work area before you visit us on Columbia Drive.
+            See the shop entrance, service bays, and work area before you visit us on Columbia
+            Drive.
           </p>
           <DirectionsButton variant="outlineLight" className="mt-5 w-full sm:w-auto" />
         </div>
@@ -195,10 +227,12 @@ export function LocationSection() {
       <Container className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
         <div className="min-w-0">
           <Eyebrow>Find us</Eyebrow>
-          <h2 className="mt-2 text-2xl font-bold uppercase leading-tight sm:text-3xl">Columbia Dr, Decatur GA</h2>
+          <h2 className="mt-2 text-2xl font-bold uppercase leading-tight sm:text-3xl">
+            Columbia Dr, Decatur GA
+          </h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Find {business.name} at {business.address.full}. Call before visiting to confirm current service
-            availability.
+            Find {business.name} at {business.address.full}. Call before visiting to confirm current
+            service availability.
           </p>
 
           <address className="mt-5 space-y-3 border-t border-hairline pt-5 text-sm not-italic">
@@ -217,7 +251,11 @@ export function LocationSection() {
 
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <DirectionsButton variant="primary" className="w-full sm:w-auto" />
-            <CallButton trackingId="cta-availability" label="Call the shop" className="w-full sm:w-auto" />
+            <CallButton
+              trackingId="cta-availability"
+              label="Call the shop"
+              className="w-full sm:w-auto"
+            />
           </div>
         </div>
 
@@ -232,9 +270,12 @@ export function LocationSection() {
             />
           ) : (
             <div className="flex h-[320px] w-full flex-col items-center justify-center gap-2 border border-dashed border-hairline bg-muted px-4 text-center lg:h-[420px]">
-              <span className="font-mono text-[11px] text-muted-foreground">[CONFIRMED_GOOGLE_MAP_URL]</span>
+              <span className="font-mono text-[11px] text-muted-foreground">
+                [CONFIRMED_GOOGLE_MAP_URL]
+              </span>
               <span className="text-xs text-muted-foreground">
-                Google Map embed for {business.address.full} appears here once the embed URL is confirmed.
+                Google Map embed for {business.address.full} appears here once the embed URL is
+                confirmed.
               </span>
             </div>
           )}

@@ -3,11 +3,23 @@ import { business, telHref, smsHref, isPlaceholder, directionsUrl } from "@/conf
 import type { ImagePlaceholder } from "@/config/business";
 import { cn } from "@/lib/utils";
 
-export function Container({ className, children }: { className?: string | undefined; children: ReactNode }) {
+export function Container({
+  className,
+  children,
+}: {
+  className?: string | undefined;
+  children: ReactNode;
+}) {
   return <div className={cn("mx-auto w-full max-w-6xl px-4 sm:px-6", className)}>{children}</div>;
 }
 
-export function Eyebrow({ className, children }: { className?: string | undefined; children: ReactNode }) {
+export function Eyebrow({
+  className,
+  children,
+}: {
+  className?: string | undefined;
+  children: ReactNode;
+}) {
   return <p className={cn("eyebrow", className)}>{children}</p>;
 }
 
@@ -16,8 +28,14 @@ const base =
 
 export const buttonStyles = {
   primary: cn(base, "bg-brand text-brand-foreground hover:bg-brand/90"),
-  outlineLight: cn(base, "border border-ink-border bg-transparent text-ink-foreground hover:bg-ink-soft"),
-  outlineDark: cn(base, "border border-foreground/25 bg-transparent text-foreground hover:bg-foreground/5"),
+  outlineLight: cn(
+    base,
+    "border border-ink-border bg-transparent text-ink-foreground hover:bg-ink-soft",
+  ),
+  outlineDark: cn(
+    base,
+    "border border-foreground/25 bg-transparent text-foreground hover:bg-foreground/5",
+  ),
   outlineBrand: cn(base, "border border-brand bg-transparent text-brand hover:bg-brand/10"),
 };
 
@@ -64,7 +82,10 @@ export function TextButton({
   const href = smsHref(business.textNumber);
   if (!href) {
     return (
-      <span data-cta={trackingId} className={cn(buttonStyles.outlineLight, className, "cursor-not-allowed")}>
+      <span
+        data-cta={trackingId}
+        className={cn(buttonStyles.outlineLight, className, "cursor-not-allowed")}
+      >
         {label}
       </span>
     );
@@ -99,7 +120,13 @@ export function DirectionsButton({
 }
 
 /** Shows the confirmed value, or a clearly-marked placeholder token. */
-export function ConfigValue({ value, className }: { value: string; className?: string | undefined }) {
+export function ConfigValue({
+  value,
+  className,
+}: {
+  value: string;
+  className?: string | undefined;
+}) {
   if (isPlaceholder(value)) {
     return (
       <span
