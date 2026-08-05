@@ -236,8 +236,6 @@ function Field({
 }
 
 export function FinalCta({ onFormFocusChange }: { onFormFocusChange: (focused: boolean) => void }) {
-  const [open, setOpen] = useState(false);
-
   return (
     <section id="estimate" className="bg-ink py-12 text-ink-foreground lg:py-16">
       <Container className="grid gap-8 lg:grid-cols-2 lg:items-start">
@@ -256,16 +254,6 @@ export function FinalCta({ onFormFocusChange }: { onFormFocusChange: (focused: b
               label="Call the Decatur shop"
               className="w-full sm:w-auto"
             />
-            <button
-              type="button"
-              data-cta="form-estimate-open"
-              aria-expanded={open}
-              aria-controls="estimate-panel"
-              onClick={() => setOpen((prev) => !prev)}
-              className={`${buttonStyles.outlineLight} w-full sm:w-auto`}
-            >
-              {open ? "Hide estimate form" : "Request an estimate"}
-            </button>
             <DirectionsButton variant="outlineLight" className="w-full sm:w-auto" />
           </div>
           <p className="mt-4 font-mono text-[11px] text-ink-muted">
@@ -274,13 +262,7 @@ export function FinalCta({ onFormFocusChange }: { onFormFocusChange: (focused: b
         </div>
 
         <div id="estimate-panel" className="min-w-0">
-          {open ? (
-            <EstimateForm onFocusChange={onFormFocusChange} />
-          ) : (
-            <div className="hidden border border-dashed border-ink-border p-6 text-sm text-ink-muted lg:block">
-              Choose "Request an estimate" to open the short vehicle-details form.
-            </div>
-          )}
+          <EstimateForm onFocusChange={onFormFocusChange} />
         </div>
       </Container>
     </section>
