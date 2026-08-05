@@ -76,7 +76,7 @@ export const business = {
 
   images: {
     exterior: {
-      src: "[REAL_EXTERIOR_PHOTO]",
+      src: "/images/hero-shop.png",
       alt: "Exterior of Decatur Mechanic at 1099 Columbia Dr, Decatur, GA",
       width: 1200,
       height: 800,
@@ -114,6 +114,7 @@ export const services = [
     id: "engine",
     number: "01",
     title: "Engine Work",
+    image: "/images/1.png",
     copy: "Check-engine lights, rough running, leaks, overheating concerns, misfires, and other engine problems.",
     footer: "Call for diagnostic pricing",
     tracking: "cta-service-engine",
@@ -122,6 +123,7 @@ export const services = [
     id: "transmission",
     number: "02",
     title: "Transmission",
+    image: "/images/2.png",
     copy: "Inspection and repair for slipping, delayed shifting, fluid leaks, and other transmission concerns.",
     footer: "Call for inspection pricing",
     tracking: "cta-service-transmission",
@@ -130,6 +132,7 @@ export const services = [
     id: "brakes",
     number: "03",
     title: "Brakes",
+    image: "/images/3.png",
     copy: "Brake inspections and repair for squeaking, grinding, vibration, worn pads, rotors, and braking concerns.",
     footer: "Call for current pricing",
     tracking: "cta-service-brakes",
@@ -138,6 +141,7 @@ export const services = [
     id: "oil",
     number: "04",
     title: "Oil Change",
+    image: "/images/4.png",
     copy: "Conventional or synthetic oil service. Call for current pricing and availability.",
     footer: "Call for oil-change pricing",
     tracking: "cta-service-oil",

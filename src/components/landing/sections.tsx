@@ -113,9 +113,17 @@ export function Services() {
             <li
               key={service.id}
               data-cta={service.tracking}
-              className="flex flex-col border border-hairline bg-card p-5"
+              className="relative flex flex-col border border-hairline bg-card p-5"
             >
-              <span className="font-display text-xl font-bold text-brand">{service.number}</span>
+              <div className="flex min-h-20 items-start justify-between gap-3">
+                <span className="font-display text-xl font-bold text-brand">{service.number}</span>
+              </div>
+              <img
+                src={service.image}
+                alt=""
+                aria-hidden="true"
+                className="pointer-events-none absolute right-3 top-3 h-24 w-28 object-contain object-right-top"
+              />
               <h3 className="mt-4 font-display text-base font-bold uppercase tracking-wide">
                 {service.title}
               </h3>
