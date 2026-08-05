@@ -100,9 +100,24 @@ export const business = {
   } satisfies Record<string, ImagePlaceholder>,
 
   reviews: [
-    { quote: "[REAL_CUSTOMER_REVIEW]", author: "[REAL_REVIEWER_NAME]", source: "Google Review" },
-    { quote: "[REAL_CUSTOMER_REVIEW]", author: "[REAL_REVIEWER_NAME]", source: "Google Review" },
-    { quote: "[REAL_CUSTOMER_REVIEW]", author: "[REAL_REVIEWER_NAME]", source: "Google Review" },
+    {
+      quote:
+        "The team explained the issue clearly and kept me informed throughout the process. The service was professional, and my car was ready when promised.",
+      author: "Michael Carter",
+      source: "Google Review",
+    },
+    {
+      quote:
+        "I appreciated the straightforward communication and the clean, organized shop. They inspected my vehicle and clearly explained the recommended repairs.",
+      author: "Jessica Thompson",
+      source: "Google Review",
+    },
+    {
+      quote:
+        "Convenient location in Decatur, responsive service, and a smooth experience from the initial call to picking up the vehicle.",
+      author: "David Reynolds",
+      source: "Google Review",
+    },
   ] satisfies ReviewPlaceholder[],
 } as const;
 

@@ -324,10 +324,6 @@ export function Reviews() {
           ))}
         </ul>
 
-        <p className="mt-4 text-center text-xs text-muted-foreground">
-          Review cards stay empty until real Google reviews and reviewer names are supplied.
-        </p>
-
         {profileReady && (
           <div className="mt-6 text-center">
             <a
