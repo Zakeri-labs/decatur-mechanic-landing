@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description: seo.description,
   openGraph: { type: "website", siteName: "Decatur Mechanic" },
   twitter: { card: "summary_large_image" },
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/favicon-decatur.svg" },
 };
 
 export const viewport: Viewport = {
