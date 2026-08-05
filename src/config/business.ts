@@ -56,7 +56,8 @@ export const business = {
   offers: "[CONFIRMED_OFFER]" as string,
   googleRating: "[CONFIRMED_GOOGLE_RATING]" as string,
   reviewCount: "[CONFIRMED_REVIEW_COUNT]" as string,
-  mapEmbedUrl: "[CONFIRMED_GOOGLE_MAP_URL]" as string,
+  mapEmbedUrl:
+    "https://www.google.com/maps?q=1099+Columbia+Dr,+Decatur,+GA+30032&output=embed" as string,
   googleBusinessProfileUrl: "[GOOGLE_BUSINESS_PROFILE_URL]" as string,
   /** TODO integration point: form POST endpoint / CRM / email destination. */
   formDestination: "[CONFIRMED_FORM_DESTINATION]" as string,
