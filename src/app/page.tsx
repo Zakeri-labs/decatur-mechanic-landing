@@ -4,7 +4,7 @@ import { LandingInteractions } from "@/components/landing/landing-interactions";
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "AutoRepair",
+  "@type": ["LocalBusiness", "AutoRepair"],
   name: business.name,
   url: business.url,
   address: {

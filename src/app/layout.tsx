@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow, Oswald } from "next/font/google";
+import { seo } from "@/config/business";
 import "./globals.css";
 
 const bodyFont = Barlow({
@@ -17,9 +18,8 @@ const displayFont = Oswald({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://decaturmechanic.com"),
-  title: "Decatur Mechanic — Auto Repair on Columbia Dr",
-  description:
-    "Decatur Mechanic: engine, transmission, brake and oil-change service at 1099 Columbia Dr, Decatur, GA.",
+  title: seo.title,
+  description: seo.description,
   openGraph: { type: "website", siteName: "Decatur Mechanic" },
   twitter: { card: "summary_large_image" },
   icons: { icon: "/favicon.ico" },

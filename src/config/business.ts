@@ -113,7 +113,7 @@ export const services = [
   {
     id: "engine",
     number: "01",
-    title: "Engine work",
+    title: "Engine Work",
     copy: "Check-engine lights, rough running, leaks, overheating concerns, misfires, and other engine problems.",
     footer: "Call for diagnostic pricing",
     tracking: "cta-service-engine",
@@ -137,7 +137,7 @@ export const services = [
   {
     id: "oil",
     number: "04",
-    title: "Oil change",
+    title: "Oil Change",
     copy: "Conventional or synthetic oil service. Call for current pricing and availability.",
     footer: "Call for oil-change pricing",
     tracking: "cta-service-oil",
@@ -145,8 +145,8 @@ export const services = [
 ] as const;
 
 export const seo = {
-  title: "Auto Repair in Decatur, GA | Decatur Mechanic on Columbia Dr",
+  title: "Mechanic Shop in Decatur, GA | Decatur Mechanic – Columbia Dr",
   description:
-    "Decatur Mechanic on 1099 Columbia Dr: engine diagnostics, transmission repair, brake service and oil changes. Call the shop to check availability.",
-  canonical: "/",
+    "Decatur Mechanic is a mechanic shop in Decatur, GA at 1099 Columbia Dr, offering Engine Work, Transmission, Brakes, and Oil Change service.",
+  canonical: "https://decaturmechanic.com",
 };

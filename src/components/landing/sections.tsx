@@ -32,7 +32,7 @@ export function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLDivElement | null
         <div className="min-w-0">
           <Eyebrow>{business.address.full}</Eyebrow>
           <h1 className="mt-3 text-4xl font-bold uppercase leading-[1.05] sm:text-5xl lg:text-6xl">
-            Your local auto repair shop in Decatur.
+            Your local mechanic shop in Decatur.
           </h1>
           <p className="mt-4 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
             Engine diagnostics, transmission repair, brake service, oil changes, and general auto
