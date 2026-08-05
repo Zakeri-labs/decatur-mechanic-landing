@@ -77,24 +77,24 @@ export const business = {
 
   images: {
     exterior: {
-      src: "/images/hero-shop.png",
+      src: "/images/Inside-3.png",
       alt: "Exterior of Decatur Mechanic at 1099 Columbia Dr, Decatur, GA",
       width: 1200,
-      height: 800,
+      height: 1000,
       caption: "Shop entrance on Columbia Dr",
     },
     shop: {
-      src: "[REAL_SHOP_PHOTO]",
+      src: "/images/Inside-1.png",
       alt: "Service bay at Decatur Mechanic with a vehicle on a lift",
-      width: 800,
-      height: 600,
+      width: 1672,
+      height: 941,
       caption: "Service bay in action",
     },
     team: {
-      src: "[REAL_TEAM_PHOTO]",
+      src: "/images/Inside-2.png",
       alt: "Work area and team at Decatur Mechanic",
-      width: 800,
-      height: 600,
+      width: 1672,
+      height: 941,
       caption: "Our team & work area",
     },
   } satisfies Record<string, ImagePlaceholder>,

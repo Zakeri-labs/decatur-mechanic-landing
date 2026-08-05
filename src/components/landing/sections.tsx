@@ -205,7 +205,9 @@ export function InsideTheShop() {
         </div>
 
         <figure className="min-w-0">
-          <ShopImage image={business.images.exterior} className="border border-ink-border" />
+          <div className="aspect-[5/4] overflow-hidden border border-ink-border">
+            <ShopImage image={business.images.exterior} className="h-full w-full" />
+          </div>
           <figcaption className="mt-2 text-[11px] uppercase tracking-widest text-ink-muted">
             {business.images.exterior.caption}
           </figcaption>
@@ -214,7 +216,9 @@ export function InsideTheShop() {
         <div className="grid min-w-0 gap-6">
           {[business.images.shop, business.images.team].map((image) => (
             <figure key={image.alt} className="min-w-0">
-              <ShopImage image={image} className="border border-ink-border" />
+              <div className="aspect-[16/9] overflow-hidden border border-ink-border">
+                <ShopImage image={image} className="h-full w-full" />
+              </div>
               <figcaption className="mt-2 text-[11px] uppercase tracking-widest text-ink-muted">
                 {image.caption}
               </figcaption>
