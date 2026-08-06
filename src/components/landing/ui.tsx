@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { business, telHref, smsHref, isPlaceholder, directionsUrl } from "@/config/business";
+import { business, whatsappHref, smsHref, isPlaceholder, directionsUrl } from "@/config/business";
 import type { ImagePlaceholder } from "@/config/business";
 import { cn } from "@/lib/utils";
 
@@ -42,7 +42,7 @@ export const buttonStyles = {
   ),
 };
 
-/** Renders a tel: link when the phone number is confirmed, otherwise a labelled placeholder. */
+/** Renders a WhatsApp link when the phone number is confirmed, otherwise a labelled placeholder. */
 export function CallButton({
   trackingId,
   label,
@@ -52,7 +52,7 @@ export function CallButton({
   label: ReactNode;
   className?: string | undefined;
 }) {
-  const href = telHref(business.phone);
+  const href = whatsappHref(business.phone);
   const classes = cn(buttonStyles.primary, className);
   if (!href) {
     return (
@@ -146,7 +146,7 @@ export function ConfigValue({
 }
 
 export function PhoneValue({ className }: { className?: string | undefined }) {
-  const href = telHref(business.phone);
+  const href = whatsappHref(business.phone);
   if (!href) return <ConfigValue value={business.phone} className={className} />;
   return (
     <a href={href} data-cta="cta-call-utility" className={cn("hover:text-brand", className)}>

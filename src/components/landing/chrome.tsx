@@ -19,22 +19,6 @@ function BrandMark() {
   );
 }
 
-export function UtilityBar() {
-  return (
-    <div className="border-b border-ink-border bg-ink text-ink-foreground">
-      <Container className="flex flex-wrap items-center gap-x-6 gap-y-1 py-2 text-xs">
-        <span className="min-w-0">{business.address.full}</span>
-        <span className="min-w-0">
-          Call the shop: <PhoneValue />
-        </span>
-        <span className="min-w-0">
-          Hours: <ConfigValue value={business.hours} />
-        </span>
-      </Container>
-    </div>
-  );
-}
-
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -52,7 +36,7 @@ export function SiteHeader() {
       }`}
     >
       <Container className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 py-3 lg:flex lg:justify-between">
-        <a href="#top" className="flex min-w-0 items-center gap-2">
+        <a href={`https://${business.domain}`} className="flex min-w-0 items-center gap-2">
           <BrandMark />
           <span className="truncate font-display text-lg font-bold uppercase leading-none tracking-wide">
             Decatur
@@ -79,27 +63,25 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="border-t border-ink-border bg-ink text-ink-foreground">
-      <Container className="grid gap-6 py-8 text-sm sm:grid-cols-2 lg:grid-cols-4">
-        <div className="flex items-center gap-2">
+      <Container className="grid gap-6 py-8 text-sm sm:grid-cols-2 lg:grid-cols-3">
+        <a href={`https://${business.domain}`} className="flex items-center gap-2 hover:text-brand">
           <BrandMark />
           <span className="font-display text-base font-bold uppercase tracking-wide">
             {business.name}
           </span>
-        </div>
+        </a>
         <address className="not-italic leading-relaxed text-ink-muted">
-          {business.address.street}
-          <br />
-          {business.address.city}, {business.address.region} {business.address.postalCode}
-          <br />
           <PhoneValue className="text-ink-foreground" />
+          <br />
+          <span className="text-ink-muted">
+            Hours: <ConfigValue value={business.hours} />
+          </span>
         </address>
-        <p className="text-ink-muted">
-          Hours: <ConfigValue value={business.hours} />
-        </p>
         <div className="flex flex-col items-start gap-2">
-          <a href={`https://${business.domain}`} className="hover:text-brand">
-            {business.domain}
-          </a>
+          <address className="not-italic whitespace-nowrap text-ink-muted">
+            {business.address.street}, {business.address.city}, {business.address.region}{" "}
+            {business.address.postalCode}
+          </address>
           <a
             data-cta="cta-directions"
             href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(business.address.full)}`}

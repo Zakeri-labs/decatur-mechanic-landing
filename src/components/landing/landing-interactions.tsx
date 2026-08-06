@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { SiteFooter, SiteHeader, UtilityBar } from "./chrome";
+import { SiteFooter, SiteHeader } from "./chrome";
 import { FinalCta } from "./estimate";
 import { BenefitBlocks, Hero, InsideTheShop, LocationSection, Reviews, Services } from "./sections";
 import { StickyMobileActions } from "./sticky-actions";
@@ -49,7 +49,6 @@ export function LandingInteractions() {
 
   return (
     <div className="min-h-screen bg-background">
-      <UtilityBar />
       <SiteHeader />
       <main>
         <RevealOnScroll>

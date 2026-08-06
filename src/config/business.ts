@@ -16,6 +16,13 @@ export const isPlaceholder = (value: string): boolean =>
 export const telHref = (value: string): string | null =>
   isPlaceholder(value) ? null : `tel:${value.replace(/[^\d+]/g, "")}`;
 
+/** Builds a WhatsApp chat URL from a confirmed phone number. */
+export const whatsappHref = (value: string): string | null => {
+  if (isPlaceholder(value)) return null;
+  const digits = value.replace(/\D/g, "");
+  return digits ? `https://wa.me/${digits}` : null;
+};
+
 export const smsHref = (value: string): string | null =>
   isPlaceholder(value) ? null : `sms:${value.replace(/[^\d+]/g, "")}`;
 
@@ -49,7 +56,7 @@ export const business = {
   },
 
   // --- Unconfirmed: require client confirmation -------------------------
-  phone: "[CONFIRMED_PHONE]" as string,
+  phone: "+1(404)-482-9312" as string,
   textNumber: "[CONFIRMED_TEXT_NUMBER]" as string,
   hours: "[CONFIRMED_HOURS]" as string,
   prices: "[CONFIRMED_PRICE]" as string,
