@@ -1,4 +1,16 @@
 import { business, services, directionsUrl, isPlaceholder } from "@/config/business";
+import Image from "next/image";
+import {
+  ArrowRight,
+  Clock3,
+  Gauge,
+  MapPin,
+  Phone,
+  ShieldCheck,
+  Star,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
 import {
   Container,
   Eyebrow,
@@ -13,78 +25,193 @@ import { ServiceCard } from "./service-card";
 
 /* ------------------------------ 1. Hero ------------------------------ */
 
-const QUICK = [
-  { label: "Today", value: "Call to check availability" },
-  { label: "Services", value: "Engine · Brakes · Transmission" },
-  { label: "Location", value: "1099 Columbia Dr" },
-];
-
-const TRUST = [
-  "Columbia Dr, Decatur GA",
-  "Engine, Brakes & Transmission",
-  "Call to check availability",
-  "Local auto repair",
+const HERO_BENEFITS: Array<{
+  title: string;
+  copy: string;
+  icon: LucideIcon;
+}> = [
+  {
+    title: "No surprise bills",
+    copy: "Recommended work is explained before approved repairs begin.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Local auto repair",
+    copy: "Right here on Columbia Dr in Decatur.",
+    icon: MapPin,
+  },
+  {
+    title: "Check availability",
+    copy: "Call before you visit for the shop's current schedule.",
+    icon: Gauge,
+  },
+  {
+    title: "Core repair services",
+    copy: "Engine, brake, and transmission service.",
+    icon: Wrench,
+  },
 ];
 
 export function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLDivElement | null> }) {
+  const quickFacts: Array<{
+    label: string;
+    value: string;
+    detail?: string;
+    icon: LucideIcon;
+  }> = [
+    {
+      label: "Today",
+      value: isPlaceholder(business.hours) ? "Call to check availability" : business.hours,
+      icon: Clock3,
+    },
+    {
+      label: "Services",
+      value: "Engine · Brakes · Transmission",
+      icon: Wrench,
+    },
+    {
+      label: "Location",
+      value: business.address.street,
+      detail: `${business.address.city}, ${business.address.region} ${business.address.postalCode}`,
+      icon: MapPin,
+    },
+  ];
+
   return (
-    <section id="top" className="bg-ink text-ink-foreground">
-      <Container className="grid gap-8 py-10 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-10 lg:py-14">
-        <div className="min-w-0">
-          <Eyebrow>{business.address.full}</Eyebrow>
-          <h1 className="mt-3 text-4xl font-bold uppercase leading-[1.05] sm:text-5xl lg:text-6xl">
-            Your local mechanic shop in Decatur.
+    <section
+      id="top"
+      aria-labelledby="hero-heading"
+      className="hero-shell relative isolate overflow-hidden bg-[#071018] text-ink-foreground"
+    >
+      <div className="absolute inset-0">
+        <Image
+          src={business.images.hero.src}
+          alt={business.images.hero.alt}
+          fill
+          priority
+          quality={88}
+          sizes="100vw"
+          className="hero-background-image object-cover"
+        />
+        <div aria-hidden="true" className="hero-image-overlay absolute inset-0" />
+        <div aria-hidden="true" className="hero-image-vignette absolute inset-0" />
+      </div>
+
+      <Container className="relative z-10 max-w-[1500px] px-4 py-12 sm:px-8 sm:py-16 lg:min-h-[720px] lg:px-10 lg:py-16 xl:min-h-[760px]">
+        <div className="max-w-[650px] min-w-0 lg:max-w-[540px] xl:max-w-[680px]">
+          <Eyebrow className="flex items-center gap-2 text-[0.69rem] leading-relaxed sm:text-xs">
+            <MapPin aria-hidden="true" className="h-4 w-4 shrink-0" />
+            {business.address.full}
+          </Eyebrow>
+          <h1
+            id="hero-heading"
+            className="mt-5 font-display text-[clamp(2.7rem,13.3vw,5.4rem)] font-bold uppercase leading-[0.94] tracking-[-0.025em] text-[#f3f0e9] lg:text-[clamp(4.3rem,6.6vw,5.2rem)] xl:text-[clamp(5.2rem,7.3vw,6.5rem)]"
+          >
+            <span className="block">Your car,</span>
+            <span className="block">
+              Fixed <span className="text-brand">right</span>
+            </span>
+            <span className="block whitespace-nowrap">The first time.</span>
           </h1>
-          <p className="mt-4 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
+          <span aria-hidden="true" className="mt-7 block h-0.5 w-16 bg-brand" />
+          <p className="mt-5 max-w-[52ch] text-base leading-relaxed text-ink-muted sm:text-lg">
             Engine diagnostics, transmission repair, brake service, oil changes, and general auto
             repair at 1099 Columbia Dr in Decatur.
           </p>
 
-          <div ref={ctaRef} className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <div ref={ctaRef} className="mt-7 flex flex-col gap-3 sm:flex-row">
             <CallButton
               trackingId="cta-call-hero"
-              label="Call to check availability"
-              className="w-full sm:w-auto"
+              label={
+                <>
+                  <Phone aria-hidden="true" className="h-5 w-5" />
+                  Call to check availability
+                </>
+              }
+              className="w-full px-5 sm:w-auto sm:px-7"
             />
             <a
               data-cta="cta-estimate-hero"
               href="#services"
-              className={`${buttonStyles.outlineLight} w-full sm:w-auto`}
+              className={`${buttonStyles.outlineLight} w-full border-brand/80 bg-[#071018]/55 px-6 hover:border-brand hover:bg-brand/10 sm:w-auto`}
             >
               See services
+              <ArrowRight aria-hidden="true" className="h-4 w-4" />
             </a>
           </div>
 
-          <dl className="mt-7 grid gap-3 sm:grid-cols-3">
-            {QUICK.map((cell) => (
-              <div key={cell.label} className="border border-ink-border bg-ink-soft p-3">
-                <dt className="font-display text-[11px] uppercase tracking-widest text-brand">
-                  {cell.label}
-                </dt>
-                <dd className="mt-1 text-xs leading-snug text-ink-foreground">{cell.value}</dd>
-              </div>
-            ))}
+          <dl className="mt-8 grid gap-3 sm:grid-cols-3">
+            {quickFacts.map((fact) => {
+              const Icon = fact.icon;
+              return (
+                <div
+                  key={fact.label}
+                  className="hero-glass-card flex min-h-24 items-start gap-3 border border-white/12 p-4"
+                >
+                  <Icon aria-hidden="true" className="mt-0.5 h-6 w-6 shrink-0 text-brand" />
+                  <div>
+                    <dt className="font-display text-xs font-semibold uppercase tracking-[0.14em] text-[#f3f0e9]">
+                      {fact.label}
+                    </dt>
+                    <dd className="mt-1.5 text-sm leading-snug text-ink-muted">
+                      {fact.value}
+                      {fact.detail && <span className="block">{fact.detail}</span>}
+                    </dd>
+                  </div>
+                </div>
+              );
+            })}
           </dl>
         </div>
 
-        <div className="min-w-0">
-          <ShopImage
-            image={business.images.exterior}
-            priority
-            className="border border-ink-border"
-          />
-        </div>
+        <a
+          href="#reviews"
+          data-cta="hero-reviews-link"
+          className="hero-glass-card group mt-5 block max-w-sm border border-white/12 p-5 transition-colors hover:border-brand/70 lg:absolute lg:right-10 lg:bottom-12 lg:mt-0 lg:w-[350px] xl:right-10"
+        >
+          <div className="flex items-start gap-4">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-brand text-brand">
+              <Star aria-hidden="true" className="h-5 w-5 fill-current" />
+            </span>
+            <div>
+              <p className="font-display text-base font-semibold uppercase tracking-[0.13em] text-[#f3f0e9]">
+                Local auto repair
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                Read feedback from customers who visited the shop.
+              </p>
+              <span className="mt-3 inline-flex items-center gap-2 font-display text-xs font-semibold uppercase tracking-widest text-brand">
+                Read customer reviews
+                <ArrowRight
+                  aria-hidden="true"
+                  className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                />
+              </span>
+            </div>
+          </div>
+        </a>
       </Container>
 
-      <div className="border-t border-ink-border">
-        <Container>
-          <ul className="grid gap-y-2 py-3 text-[11px] uppercase tracking-widest text-ink-muted sm:grid-cols-2 lg:flex lg:items-center lg:justify-between">
-            {TRUST.map((item) => (
-              <li key={item} className="flex items-center gap-2">
-                <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 bg-brand" />
-                {item}
-              </li>
-            ))}
+      <div className="relative z-10 border-t border-white/12 bg-[#071018]/88 backdrop-blur-sm">
+        <Container className="max-w-[1500px] px-4 py-4 sm:px-8 lg:px-10">
+          <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+            {HERO_BENEFITS.map((benefit) => {
+              const Icon = benefit.icon;
+              return (
+                <li
+                  key={benefit.title}
+                  className="flex min-h-24 items-start gap-3 border border-white/10 p-4 lg:border-y-0 lg:border-r-0 lg:px-6 lg:first:border-l-0"
+                >
+                  <Icon aria-hidden="true" className="h-8 w-8 shrink-0 text-brand" />
+                  <div>
+                    <p className="font-display text-sm font-semibold uppercase tracking-[0.12em] text-[#f3f0e9]">
+                      {benefit.title}
+                    </p>
+                    <p className="mt-1 text-xs leading-relaxed text-ink-muted">{benefit.copy}</p>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </Container>
       </div>

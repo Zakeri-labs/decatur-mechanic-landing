@@ -83,6 +83,12 @@ export const business = {
   },
 
   images: {
+    hero: {
+      src: "/images/decatur-mechanic-hero.webp",
+      alt: "Decatur Mechanic shop and customer vehicles at dusk",
+      width: 1672,
+      height: 941,
+    },
     exterior: {
       src: "/images/Inside-3.png",
       alt: "Exterior of Decatur Mechanic at 1099 Columbia Dr, Decatur, GA",

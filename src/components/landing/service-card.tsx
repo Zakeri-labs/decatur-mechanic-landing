@@ -50,7 +50,7 @@ export function ServiceCard({ service }: { service: Service }) {
   return (
     <li
       ref={cardRef}
-      className={`group relative flex flex-col border border-hairline bg-card p-5 transition-[border-color,box-shadow] duration-300 hover:border-brand hover:shadow-[0_0_24px_oklch(0.68_0.19_47_/_0.45)] ${
+      className={`group relative flex min-w-0 flex-col border border-hairline bg-card p-5 transition-[border-color,box-shadow] duration-300 hover:border-brand hover:shadow-[0_0_24px_oklch(0.68_0.19_47_/_0.45)] ${
         isHighlighted ? "border-brand shadow-[0_0_24px_oklch(0.68_0.19_47_/_0.45)]" : ""
       }`}
     >
