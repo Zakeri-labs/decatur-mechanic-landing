@@ -9,6 +9,7 @@ import {
   PhoneValue,
   buttonStyles,
 } from "./ui";
+import { ServiceCard } from "./service-card";
 
 /* ------------------------------ 1. Hero ------------------------------ */
 
@@ -24,17 +25,6 @@ const TRUST = [
   "Call to check availability",
   "Local auto repair",
 ];
-
-function ServiceCallLabel({ label }: { label: string }) {
-  const [call, ...details] = label.split(" ");
-
-  return (
-    <>
-      <span className="whitespace-nowrap">{call}</span>
-      <span className="whitespace-nowrap lg:text-xs lg:leading-none">{details.join(" ")}</span>
-    </>
-  );
-}
 
 export function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLDivElement | null> }) {
   return (
@@ -121,31 +111,7 @@ export function Services() {
 
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
-            <li
-              key={service.id}
-              className="group relative flex flex-col border border-hairline bg-card p-5 transition-[border-color,box-shadow] duration-300 hover:border-brand hover:shadow-[0_0_24px_oklch(0.68_0.19_47_/_0.45)]"
-            >
-              <div className="flex min-h-20 items-start justify-between gap-3">
-                <span className="font-display text-xl font-bold text-brand">{service.number}</span>
-              </div>
-              <img
-                src={service.image}
-                alt=""
-                aria-hidden="true"
-                className="pointer-events-none absolute right-3 top-3 h-24 w-28 object-contain object-right-top"
-              />
-              <h3 className="mt-4 font-display text-base font-bold uppercase tracking-wide">
-                {service.title}
-              </h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {service.copy}
-              </p>
-              <CallButton
-                trackingId={service.tracking}
-                label={<ServiceCallLabel label={service.footer} />}
-                className={`${buttonStyles.outlineBrand} mt-5 w-full lg:flex-col lg:gap-0 group-hover:border-brand group-hover:bg-brand group-hover:text-brand-foreground`}
-              />
-            </li>
+            <ServiceCard key={service.id} service={service} />
           ))}
         </ul>
 
