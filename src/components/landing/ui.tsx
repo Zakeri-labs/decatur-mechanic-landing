@@ -36,7 +36,10 @@ export const buttonStyles = {
     base,
     "border border-foreground/25 bg-transparent text-foreground hover:bg-foreground/5",
   ),
-  outlineBrand: cn(base, "border border-brand bg-transparent text-brand hover:bg-brand/10"),
+  outlineBrand: cn(
+    base,
+    "border border-foreground/25 bg-transparent text-foreground hover:border-brand hover:bg-brand hover:text-brand-foreground",
+  ),
 };
 
 /** Renders a tel: link when the phone number is confirmed, otherwise a labelled placeholder. */
@@ -46,7 +49,7 @@ export function CallButton({
   className,
 }: {
   trackingId: string;
-  label: string;
+  label: ReactNode;
   className?: string | undefined;
 }) {
   const href = telHref(business.phone);

@@ -25,6 +25,17 @@ const TRUST = [
   "Local auto repair",
 ];
 
+function ServiceCallLabel({ label }: { label: string }) {
+  const [call, ...details] = label.split(" ");
+
+  return (
+    <>
+      <span className="whitespace-nowrap">{call}</span>
+      <span className="whitespace-nowrap lg:text-xs lg:leading-none">{details.join(" ")}</span>
+    </>
+  );
+}
+
 export function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLDivElement | null> }) {
   return (
     <section id="top" className="bg-ink text-ink-foreground">
@@ -112,8 +123,7 @@ export function Services() {
           {services.map((service) => (
             <li
               key={service.id}
-              data-cta={service.tracking}
-              className="relative flex flex-col border border-hairline bg-card p-5"
+              className="group relative flex flex-col border border-hairline bg-card p-5 transition-[border-color,box-shadow] duration-300 hover:border-brand hover:shadow-[0_0_24px_oklch(0.68_0.19_47_/_0.45)]"
             >
               <div className="flex min-h-20 items-start justify-between gap-3">
                 <span className="font-display text-xl font-bold text-brand">{service.number}</span>
@@ -130,9 +140,11 @@ export function Services() {
               <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
                 {service.copy}
               </p>
-              <p className="mt-5 border-t border-hairline pt-3 text-xs font-semibold uppercase tracking-wide">
-                {service.footer}
-              </p>
+              <CallButton
+                trackingId={service.tracking}
+                label={<ServiceCallLabel label={service.footer} />}
+                className={`${buttonStyles.outlineBrand} mt-5 w-full lg:flex-col lg:gap-0 group-hover:border-brand group-hover:bg-brand group-hover:text-brand-foreground`}
+              />
             </li>
           ))}
         </ul>
