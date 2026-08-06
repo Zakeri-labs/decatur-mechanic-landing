@@ -265,8 +265,8 @@
 
 @media (max-width: 1023px) {
   .hero-background-image {
-    height: min(760px, 78svh) !important;
-    object-position: 59% center;
+    height: min(820px, 88svh) !important;
+    object-position: 60% center;
   }
 
   .hero-image-overlay {
@@ -281,6 +281,28 @@
       oklch(0.1 0.02 252 / 18%) 0%,
       transparent 28%,
       oklch(0.1 0.02 252 / 98%) 76%
+    );
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-background-image {
+    height: min(820px, 94svh) !important;
+    object-position: 62% center;
+  }
+
+  .hero-image-overlay {
+    background:
+      linear-gradient(90deg, oklch(0.13 0.027 252 / 84%) 0%, oklch(0.13 0.027 252 / 28%) 100%),
+      linear-gradient(180deg, transparent 42%, oklch(0.13 0.027 252 / 92%) 91%);
+  }
+
+  .hero-image-vignette {
+    background: linear-gradient(
+      180deg,
+      oklch(0.1 0.02 252 / 10%) 0%,
+      transparent 48%,
+      oklch(0.1 0.02 252 / 94%) 88%
     );
   }
 }

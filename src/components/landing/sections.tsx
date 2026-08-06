@@ -105,7 +105,7 @@ export function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLDivElement | null
           </Eyebrow>
           <h1
             id="hero-heading"
-            className="mt-5 font-display text-[clamp(2.7rem,13.3vw,5.4rem)] font-bold uppercase leading-[0.94] tracking-[-0.025em] text-[#f3f0e9] lg:text-[clamp(4.3rem,6.6vw,5.2rem)] xl:text-[clamp(5.2rem,7.3vw,6.5rem)]"
+            className="mt-5 font-display text-[clamp(2.35rem,11.8vw,4.8rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-[#f3f0e9] lg:text-[clamp(3.8rem,5.8vw,4.7rem)] xl:text-[clamp(4.7rem,6.4vw,5.8rem)]"
           >
             <span className="block">Your car,</span>
             <span className="block">
