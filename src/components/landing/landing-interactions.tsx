@@ -25,7 +25,7 @@ function RevealOnScroll({ children, delay = 0 }: { children: ReactNode; delay?: 
         setIsVisible(true);
         observer.unobserve(section);
       },
-      { threshold: 0.01, rootMargin: "0px 0px -5% 0px" },
+      { threshold: 0.01, rootMargin: "0px 0px -18% 0px" },
     );
 
     observer.observe(section);
@@ -54,22 +54,22 @@ export function LandingInteractions() {
         <RevealOnScroll>
           <Hero ctaRef={heroCtaRef} />
         </RevealOnScroll>
-        <RevealOnScroll delay={40}>
+        <RevealOnScroll delay={80}>
           <Services />
         </RevealOnScroll>
-        <RevealOnScroll delay={40}>
+        <RevealOnScroll delay={80}>
           <BenefitBlocks />
         </RevealOnScroll>
-        <RevealOnScroll delay={40}>
+        <RevealOnScroll delay={80}>
           <InsideTheShop />
         </RevealOnScroll>
-        <RevealOnScroll delay={40}>
+        <RevealOnScroll delay={80}>
           <LocationSection />
         </RevealOnScroll>
-        <RevealOnScroll delay={40}>
+        <RevealOnScroll delay={80}>
           <Reviews />
         </RevealOnScroll>
-        <RevealOnScroll delay={40}>
+        <RevealOnScroll delay={80}>
           <FinalCta onFormFocusChange={setKeyboardOpen} />
         </RevealOnScroll>
       </main>
